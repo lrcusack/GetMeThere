@@ -19,6 +19,9 @@ body{
 	margin-top: -1px;
 }
 
+b{
+	color:#2ea02e;
+}
 .logo{
 	max-width: 120px;
 	max-height: 37px;
@@ -37,6 +40,14 @@ body{
 }
 
 #finaltravel{
+	margin-left: 30px;
+}
+
+form{
+	display:inline-block;
+	color:green;
+	font-family: "Calibri";
+	font-weight:300px;
 	
 }
 
