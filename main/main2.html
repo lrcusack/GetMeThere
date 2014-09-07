@@ -57,9 +57,11 @@
 	
     		pointsAndDur = getCoordinates(response.routes[0].legs[0].steps.length,response.routes[0].legs[0]);
     		//travelTime = getTime(pointsAndDur,hour);
-    		arrTime(pointsAndDur,"05:20","Saturday");
+    		atime = arrTime(pointsAndDur,"05:20","Saturday");
 
+    		document.getElementById('finalTravel').innerHTML = "Arrival Time: " + atime;
           	drawLines(pointsAndDur);
+          	//document.getElementById('finalTravel').innerHTML = "sdflkj";
           	createMarkers(pointsAndDur);
           	map.fitBounds(markerBounds);
           	createStartEndMarkers(pointsAndDur);
@@ -81,10 +83,10 @@
     	var line;
 
     	var n;
-    	
     	for (i = 0; i < info.length - 1; i++) {
+    		//document.getElementById('finalTravel').innerHTML = info[i][0];
     		pathCoords = [new google.maps.LatLng(info[i][0][0],info[i][0][1]),new google.maps.LatLng(info[i+1][0][0],info[i+1][0][1])];
-
+    		document.getElementById('finalTravel').innerHTML = "sdflkj";
     		n = Math.random();
     		if (n<0.34) {
     			color = '#FF0000';
