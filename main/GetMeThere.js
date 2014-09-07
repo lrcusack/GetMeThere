@@ -113,7 +113,7 @@ function roundTime(ct){
 
 //######################Traffic Index Info##################################(because Liam and JSON have beef)
 
-var colors = { "green":1.000,   "g-y":2.100,   "y-o":2.387,   "o-r":2.645,   "r":5.768 };
+var colors = { "green":1.000,   "g-y":2.100,   "y-o":2.340,   "o-r":2.645,   "r":5.768 };
 
 var ndays  = 7;
 var days = {
