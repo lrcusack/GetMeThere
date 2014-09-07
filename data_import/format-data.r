@@ -18,7 +18,9 @@ initiate_array = "var tfactor = [];
 
 for(i in 1:nr){
   for(j in 1:nd){
-    assignment = paste(assignment,"\ntfactor[", i,"][",j,"] = [",paste(as.character(matrix.data[i,j,]),sep="",collapse=", "),"];\n",sep="")
+    x = i-1;
+    y= j-1;
+    assignment = paste(assignment,"\ntfactor[", x,"][",y,"] = [",paste(as.character(matrix.data[i,j,]),sep="",collapse=", "),"];\n",sep="")
   }
 }
 
