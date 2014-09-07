@@ -4,6 +4,8 @@
 <html>
   <head>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<script src="http://cdn.alloyui.com/2.5.0/aui/aui-min.js"></script>
+	<link href="http://cdn.alloyui.com/2.5.0/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Directions service</title>
@@ -343,8 +345,10 @@
       <option value="Riverdale-Hegewisch, Chicago">Riverdale-Hegewisch</option>
       <option value="Downtown Lakefront, Chicago">Downtown Lakefront</option>
     </select>
-
-    <b id="finalTravel">Hello!</b>
+	<form>
+		Select a time:<input type="time" name="time">
+	</form>
+	<b class="finalTravel">Hello!</b>
  
     </div>
     <div id="map-canvas"></div>

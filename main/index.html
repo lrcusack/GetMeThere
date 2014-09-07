@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bootstrap datepicker examples</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Bootstrap CSS and bootstrap datepicker CSS used for styling the demo pages-->
+		<script type="text/javascript" src="bootstrap-datetimepicker.min.js"></script>
+        <link rel="stylesheet" href="datepicker.css">
+        <link rel="stylesheet" href="bootstrap.css">
+		<link rel="stylesheet" href="bootstrap-datetimepicker.min.css">
+    </head>
+    <body>
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker4'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker4').datetimepicker({
+                    pickDate: false
+                });
+            });
+        </script>
+    </div>
+</div>
+          
+    </body>
+</html>
