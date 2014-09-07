@@ -43,7 +43,8 @@
     	var latLongDistDurReg = [];
     	//var hour = document.getElementById('hour').value;
     	var hour = 1;
-      	var start = document.getElementById('start').value;
+      	//var start = document.getElementById('start').value;
+      	var start = prompt("starting address?");
       	var end = document.getElementById('end').value;
       	var request = {
           origin:start,
@@ -53,7 +54,7 @@
 
       	directionsService.route(request, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
-
+	
     		pointsAndDur = getCoordinates(response.routes[0].legs[0].steps.length,response.routes[0].legs[0]);
     		travelTime = getTime(pointsAndDur,hour);
 
