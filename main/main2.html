@@ -83,7 +83,7 @@
     	var n;
     	
     	for (i = 0; i < info.length - 1; i++) {
-    		pathCoords = [info[i][0],info[i+1][0]];
+    		pathCoords = [new google.maps.LatLng(info[i][0][0],info[i][0][1]),new google.maps.LatLng(info[i+1][0][0],info[i+1][0][1])];
 
     		n = Math.random();
     		if (n<0.34) {
@@ -108,18 +108,18 @@
     function createMarkers(coords) {
         //parameter contains list of [latlng, duration to next]
     	for (i = 0; i < coords.length; i++) {
-    		markerBounds.extend(coords[i][0]);
+    		markerBounds.extend(new google.maps.LatLng(coords[i][0][0],coords[i][0][1]));
     	}
     }
 
     function createStartEndMarkers(list) {
     	var marker1 = new google.maps.Marker({
-    	    position: list[0][0],
+    	    position: new google.maps.LatLng(list[0][0][0],list[0][0][1]),
     	    map: map,
     	    title:"Start"
     	});
     	var marker2 = new google.maps.Marker({
-    	    position: list[list.length-1][0],
+    	    position: new google.maps.LatLng(list[list.length-1][0][0],list[list.length-1][0][1]),
     	    map: map,
     	    title:"End",
         	icon: "logoSmall.png"
