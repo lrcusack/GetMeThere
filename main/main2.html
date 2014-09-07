@@ -15,7 +15,6 @@
     var map;
     var markerBounds;
     var linesOnMap;
-    var regions;
     var instructions;
     var pointerList;
 
@@ -32,7 +31,6 @@
       directionsDisplay.setMap(map);
       linesOnMap = [];
       pointerList = [];
-      regions = [];
       instructions = [];
       makeRegions();
     } //initialize end
@@ -130,30 +128,6 @@
     	marker2.setMap(map);
     	pointerList.push(marker1);
     	pointerList.push(marker2);
-    }
-    function makeRegions() {
-    	var coords1 = [new google.maps.LatLng(41.88, -86.62),new google.maps.LatLng(42.8818, -86.62),new google.maps.LatLng(42.8818, -88.62),new google.maps.LatLng(41.88, -88.62)];
-    	var coords2 = [new google.maps.LatLng(41.88, -86.62),new google.maps.LatLng(40.8818, -86.62),new google.maps.LatLng(40.8818, -88.62),new google.maps.LatLng(41.88, -88.62)];
-    	var poly1 = new google.maps.Polygon({
-    	    paths: coords1,
-    	    strokeColor: '#0000FF',
-    	    strokeOpacity: 0.8,
-    	    strokeWeight: 3,
-    	    fillColor: '#0000FF',
-    	    fillOpacity: 0.35
-    	  });
-    	var poly2 = new google.maps.Polygon({
-    	    paths: coords2,
-    	    strokeColor: '#00FF00',
-    	    strokeOpacity: 0.8,
-    	    strokeWeight: 3,
-    	    fillColor: '#00FF00',
-    	    fillOpacity: 0.35
-    	  });
-    	  //poly1.setMap(map);
-    	  regions.push(poly1);
-    	  //poly2.setMap(map);
-    	  regions.push(poly2);
     }
 
     function getTime(list, timeOfDay) {

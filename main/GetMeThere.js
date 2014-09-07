@@ -60,8 +60,8 @@ function findRegion(ll){
 	var r;
 	
 	for(var i = 0; i<nregions; i++){
-		document.getElementById("finalTravel").innerHTML = regions[1].n;
-		document.getElementById("finalTravel").innerHTML += " "+ll[1];
+		document.getElementById("finalTravel").innerHTML = regions;
+		//document.getElementById("finalTravel").innerHTML += " "+ll[1];
 
 		//document.getElementById("finalTravel").innerHTML = "hit";
 		if((ll[1] >= regions[i].w )&& (ll[1]<=regions[i].e)){
