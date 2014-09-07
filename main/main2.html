@@ -1,5 +1,4 @@
 
-	
 <!DOCTYPE html>
 <html>
   <head>
@@ -307,14 +306,15 @@
       <option value="Riverdale-Hegewisch, Chicago">Riverdale-Hegewisch</option>
       <option value="Downtown Lakefront, Chicago">Downtown Lakefront</option>
     </select>
+		<form action="">
+		<input type="radio" class = "radioButton1"name="Arrival Time" value="Arrival">Arrival
+		<input type="radio" class = "radioButton2"name="Departure Time" value="Departure">Departure
+		</form>
 	<form>
-		Select a time to depart:<input type="time" name="timeDepart">
-	</form>
-	<form>
-		Select a time to arrive:<input type="time" name="timeArrive">
+		Select a time:<input type="time" name="time">
 	</form>
 	<form action="demo_form.asp" method="get">
-
+	Choose day:
   <input list="daysOfWeek" name="day">
   <datalist id="monday">
   <option value="tuesday">
