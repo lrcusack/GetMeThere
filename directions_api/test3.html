@@ -26,11 +26,12 @@
       		
     	</style>
     	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-    	<!-- 
+    	
     	<body style="font-family: Arial; font-size: 13px; color: red;"> 
    		<div id="map" style="width: 400px; height: 100px;"></div> 
-   		<div id="duration">Duration: </div>  
-
+   		<div id="instructions">Instructions: </div>  
+		<!-- 
+		<div id="duration">Duration: </div>  
    		<div id="s">Number of Steps: </div>
    		<div id="tot">Total Length: </div>
    		<div id="h">hour: </div>
@@ -61,6 +62,7 @@ var map;
 var markerBounds;
 var linesOnMap;
 var regions;
+var instructions;
 
 function initialize() {
   directionsDisplay = new google.maps.DirectionsRenderer();
@@ -73,6 +75,7 @@ function initialize() {
   markerBounds = new google.maps.LatLngBounds();
   directionsDisplay.setMap(map);
   linesOnMap = [];
+  instructions = [];
   regions = [];
   makeRegions();
 } //initialize end
@@ -219,6 +222,7 @@ function getCoordinates(numberOfSteps, theRoute) {
 	var justCoordinates = [];
 	var pAndD = [];
 	var everything = [];
+	
 	var step;
 	var durat;
 	var length;
@@ -229,7 +233,7 @@ function getCoordinates(numberOfSteps, theRoute) {
 
 	for (i = 0; i < theRoute.steps.length;i++){
     	step = theRoute.steps[i];   	
-    	
+    	instructions.push(step.instructions);
     	durat = step.duration.value; // in seconds
     	length = step.distance.value; // in meters
 
@@ -273,6 +277,7 @@ function trafficTime(start, normalTime, hour) {
 
 function refresh() {
 	markerBounds = new google.maps.LatLngBounds();
+	instructions = [];
 	//document.getElementById('s').innerHTML = "Number of Steps: ";
 	//document.getElementById('duration').innerHTML = "Duration: ";
     //document.getElementById('tot').innerHTML = "Total Length: ";
