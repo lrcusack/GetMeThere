@@ -5,8 +5,8 @@ function test(){
 	//document.getElementById("debug").innerHTML += "tdb runs";
 	//addTime("05:32",1000);
 	//a = depTime([{latlon : [-87.69,42], duration : 180},{latlon : [-87.69,41.7], duration : 180}],"05:32","Saturday");
-	a = depTime([{latlon : [-87.69,41.7], duration : 180},{latlon : [-87.69,41.7], duration : 180}],"05:32","Saturday");
-	document.getElementById("debug").innerHTML += a;
+	//a = depTime([{latlon : [-87.69,41.7], duration : 180},{latlon : [-87.69,41.7], duration : 180}],"05:32","Saturday");
+	//document.getElementById("debug").innerHTML += a;
 	//document.getElementById("debug").innerHTML += "code runs";
 }
 
