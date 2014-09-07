@@ -1,3 +1,8 @@
+body{
+	font-family: "Calibri";
+	color:green;
+}
+
 .header{
 	height: 37px;
 	width: 100%;
@@ -31,7 +36,14 @@ body{
 	background-image: url("overlay.png");
 }
 
+#finaltravel{
+	
+}
+
 #map-canvas{
+	   -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 10 10 10px #000000;
 	height: 89%;
 	width: 97%;
 	position:relative;
