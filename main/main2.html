@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <title>GetMeThere</title>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script type="text/javascript" src="GetMeThere.js"></script>
     <script>
     var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
@@ -19,6 +20,7 @@
     var pointerList;
 
     function initialize() {
+      build_tdb();  
       directionsDisplay = new google.maps.DirectionsRenderer();
       var chicago = new google.maps.LatLng(41.850033, -87.6500523);
       var mapOptions = {
@@ -43,8 +45,8 @@
     	var latLongDistDurReg = [];
     	//var hour = document.getElementById('hour').value;
     	var hour = 1;
-      	//var start = document.getElementById('start').value;
-      	var start = prompt("starting address?");
+      	var start = document.getElementById('start').value;
+      	//var start = prompt("starting address?");
       	var end = document.getElementById('end').value;
       	var request = {
           origin:start,
@@ -56,7 +58,8 @@
         if (status == google.maps.DirectionsStatus.OK) {
 	
     		pointsAndDur = getCoordinates(response.routes[0].legs[0].steps.length,response.routes[0].legs[0]);
-    		travelTime = getTime(pointsAndDur,hour);
+    		//travelTime = getTime(pointsAndDur,hour);
+    		arrTime(pointsAndDur,"05:20","Saturday");
 
           	drawLines(pointsAndDur);
           	createMarkers(pointsAndDur);
@@ -184,10 +187,10 @@
     		for (j = 0; j < step.path.length-1;j++) {
     			dist = distance(step.path[j],step.path[j+1]); // in miles
     			dur = (dist/(c*length))*durat; // in seconds
-    			pAndD.push([step.path[j], dur]);
+    			pAndD.push({"latlon":[step.path[j].lat(),step.path[j].lng()], "duration":dur});
     			//dur is time from this point to next
     		}
-    		pAndD.push([step.path[step.path.length-1],0]);
+    		pAndD.push({"latlon":step.path[step.path.length-1],"duration":0});
     		
       	}
       	return pAndD;
@@ -325,5 +328,6 @@
     </div>
     <div id="map-canvas"></div>
     <div id="side">Welcome to GetMeThere<br><br>Please choose starting and ending locations.</div>
+    
   </body>
 </html>

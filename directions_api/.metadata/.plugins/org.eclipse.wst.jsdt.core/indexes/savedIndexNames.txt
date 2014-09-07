@@ -1,0 +1,2 @@
+INDEX VERSION 1.121+C:\Users\Owner\Desktop\GetMeThere\directions_api\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1466120622.index

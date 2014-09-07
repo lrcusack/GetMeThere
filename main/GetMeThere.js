@@ -11,12 +11,15 @@ function test(){
 }
 
 function arrTime(pointdata, departTime,day){
+	
 	var ctime = departTime;
 	var tf;
 	var dt;
 	for(var i = 0; i<pointdata.length; i++){
+		
 		tf = getTfactor(pointdata[i].latlon,ctime,day);
-		//document.getElementById("debug").innerHTML += "*** "+tf+" ***";
+		
+		document.getElementById("finalTravel").innerHTML += "*** "+tf+" ***";
 		dt = pointdata[i].duration * tf;
 		ctime = addTime(ctime,dt);
 	}
@@ -42,6 +45,7 @@ function depTime(pointdata, arrTime, day){
 function getTfactor(ll, ct, day){
 	
 	r = findRegion(ll)-1;
+	document.getElementById("finalTravel").innerHTML = "hit";
 	//document.getElementById("debug").innerHTML += r;
 	if(r==-1){return 1;}
 	d = days[String(day)] - 1;
@@ -54,9 +58,17 @@ function getTfactor(ll, ct, day){
 
 function findRegion(ll){
 	var r;
+	
 	for(var i = 0; i<nregions; i++){
-		if((ll[0] >= regions[i].w )&& (ll[0]<=regions[i].e)){
-			if(ll[1]<=regions[i].n && ll[1]>=regions[i].s){
+		document.getElementById("finalTravel").innerHTML = regions[1].n;
+		document.getElementById("finalTravel").innerHTML += " "+ll[1];
+
+		//document.getElementById("finalTravel").innerHTML = "hit";
+		if((ll[1] >= regions[i].w )&& (ll[1]<=regions[i].e)){
+			//document.getElementById("finalTravel").innerHTML = "hit";
+			if((ll[0]<=regions[i].n) && (ll[0]>=regions[i].s)){
+				
+				//document.getElementById("finalTravel").innerHTML = "hit";
 				return i+1;
 			}
 		}
