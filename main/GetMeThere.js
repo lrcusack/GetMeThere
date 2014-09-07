@@ -31,7 +31,7 @@ function arrTime(pointdata, departTime,day){
 		else if (tf<=colors.gy){color[i] = '#DFFE04';}
 		else if (tf<=colors.yo){color[i] = '#FEE40B';}
 		else if (tf<=colors.or){color[i] = '#FF6600';}
-		else {color = '#FF0000';}
+		else {color[i] = '#FF0000';}
 
 
 	}
