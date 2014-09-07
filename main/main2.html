@@ -60,6 +60,7 @@
           	drawLines(pointsAndDur);
           	createMarkers(pointsAndDur);
           	map.fitBounds(markerBounds);
+          	createStartEndMarkers(pointsAndDur);
           	document.getElementById('finalTravel').innerHTML = "Travel time: " + travelTime;
 
           	for (i = 0; i < instructions.length;i++) {
@@ -118,9 +119,13 @@
     	var marker2 = new google.maps.Marker({
     	    position: list[list.length-1][0],
     	    map: map,
-    	    title:"End"
+    	    title:"End",
+        	icon: "GetMeThere.png"
     	});
-    	
+    	marker1.setMap(map);
+    	marker2.setMap(map);
+    	pointerList.push(marker1);
+    	pointerList.push(marker2);
     }
     function makeRegions() {
     	var coords1 = [new google.maps.LatLng(41.88, -86.62),new google.maps.LatLng(42.8818, -86.62),new google.maps.LatLng(42.8818, -88.62),new google.maps.LatLng(41.88, -88.62)];
@@ -198,6 +203,10 @@
         for (i = 0; i < linesOnMap.length;i++) {
     		linesOnMap[i].setMap(null);
         }
+        for (i = 0; i < pointerList.length;i++) {
+            pointerList[i].setMap(null);
+        }
+        pointerList = [];
         linesOnMap = [];
         instructions = [];
  		document.getElementById('side').innerHTML = "";
