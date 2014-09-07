@@ -61,7 +61,8 @@
     		//travelTime = getTime(pointsAndDur,hour);
     		pointsAndDur = stuff[0];
     		coordinates = stuff[1];
-    		atime = arrTime(pointsAndDur,"05:20","Saturday");
+			//document.getElementById('finalTravel').innerHTML = document.getElementById('time').value
+    		atime = arrTime(pointsAndDur,document.getElementById('hours').value+":"+document.getElementById('minutes').value,document.getElementById('days').value);
 
     		document.getElementById('finalTravel').innerHTML = "Arrival Time: " + atime;
           	drawLines(coordinates);
@@ -132,7 +133,7 @@
     	    position: list[list.length-1],
     	    map: map,
     	    title:"End",
-        	icon: "logoSmall.png"
+        	//icon: "logoSmall.png"
     	});
     	marker1.setMap(map);
     	marker2.setMap(map);
@@ -307,29 +308,59 @@
       <option value="Riverdale-Hegewisch, Chicago">Riverdale-Hegewisch</option>
       <option value="Downtown Lakefront, Chicago">Downtown Lakefront</option>
     </select>
-		<form action="">
-		<input type="radio" class = "radioButton1"name="timeX" value="time">Arrival
-		<input type="radio" class = "radioButton1"name="timeX" value="time">Departure
-		</form>
-	<form>
-		Select a time:<input type="time" name="time">
-	</form>
-	<form action="demo_form.asp" method="get">
-	Choose day:
-<input list="days">
+		<select id="arrdep" onchange="calcRoute();">
+		<option value="arr">Arrival</option>
+		<option value="dep">Departure</option>
+		</select>
+	
+	Hour<select id="hours" onchange="calcRoute();">
+	<option value="00">0</option>
+	<option value="01">1</option>
+	<option value="02">2</option>
+	<option value="03">3</option>
+	<option value="04">4</option>
+	<option value="05">5</option>
+	<option value="06">6</option>
+	<option value="07">7</option>
+	<option value="08">8</option>
+	<option value="09">9</option>
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+	<option value="13">13</option>
+	<option value="14">14</option>
+	<option value="15">15</option>
+	<option value="16">16</option>
+	<option value="17">17</option>
+	<option value="18">18</option>
+    <option value="19">19</option>
+	<option value="20">20</option>
+	<option value="21">21</option>
+	<option value="22">22</option>
+	<option value="23">23</option>
+</select>
+	Minute<select id="minutes" onchange="calcRoute();">
+		<option value="00">00</option>
+		<option value="10">10</option>
+		<option value="20">20</option>
+		<option value="30">30</option>
+		<option value="40">40</option>
+		<option value="50">50</option>
+		
+	</select>
 
-<datalist id="days">
-  <option value="Monday">
-  <option value="Tuesday">
-  <option value="Wednesday">
-  <option value="Thursday">
-  <option value="Friday">
-    <option value="Saturday">
-  <option value="Sunday"
-</datalist>
-</datalist>
-<input type="submit">
-</form>
+
+
+<select id="days" onchange="calcRoute();">
+  <option value="Monday">Monday</option>
+  <option value="Tuesday">Tuesday</option>
+  <option value="Wednesday">Wednesday</option>
+  <option value="Thursday">Thursday</option>
+  <option value="Friday">Friday</option>
+  <option value="Saturday">Saturday</option>
+  <option value="Sunday">Sunday</option>
+</select>
+
 		
     <b id="finalTravel">Hello!</b>
  

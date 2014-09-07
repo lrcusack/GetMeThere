@@ -129,8 +129,8 @@ function roundTime(ct){
 //document.getElementById("finalTravel").innerHTML += "hit";
 	var time = ct.split(":");
 	hours = parseInt(time[0]);
-	minutes = Math.round(parseInt(time[1])/10)*10;
-
+	minutes = Math.round(parseFloat(time[1])/10)*10;
+	//document.getElementById('finalTravel').innerHTML =String(time[1]);
 	return timeString(hours,minutes);
 }
 
