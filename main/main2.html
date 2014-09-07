@@ -1,4 +1,5 @@
 
+	
 <!DOCTYPE html>
 <html>
   <head>
@@ -307,22 +308,25 @@
       <option value="Downtown Lakefront, Chicago">Downtown Lakefront</option>
     </select>
 		<form action="">
-		<input type="radio" class = "radioButton1"name="Arrival Time" value="Arrival">Arrival
-		<input type="radio" class = "radioButton2"name="Departure Time" value="Departure">Departure
+		<input type="radio" class = "radioButton1"name="timeX" value="time">Arrival
+		<input type="radio" class = "radioButton1"name="timeX" value="time">Departure
 		</form>
 	<form>
 		Select a time:<input type="time" name="time">
 	</form>
 	<form action="demo_form.asp" method="get">
 	Choose day:
-  <input list="daysOfWeek" name="day">
-  <datalist id="monday">
-  <option value="tuesday">
-  <option value="wednesday">
-  <option value="thursday">
-  <option value="friday">
-  <option value="saturday">
-  <option value="sunday">
+<input list="days">
+
+<datalist id="days">
+  <option value="Monday">
+  <option value="Tuesday">
+  <option value="Wednesday">
+  <option value="Thursday">
+  <option value="Friday">
+    <option value="Saturday">
+  <option value="Sunday"
+</datalist>
 </datalist>
 <input type="submit">
 </form>
