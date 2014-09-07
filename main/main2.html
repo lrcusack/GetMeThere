@@ -18,6 +18,7 @@
     var linesOnMap;
     var regions;
     var instructions;
+    var pointerList;
 
     function initialize() {
       directionsDisplay = new google.maps.DirectionsRenderer();
@@ -30,6 +31,7 @@
       markerBounds = new google.maps.LatLngBounds();
       directionsDisplay.setMap(map);
       linesOnMap = [];
+      pointerList = [];
       regions = [];
       instructions = [];
       makeRegions();
@@ -109,6 +111,19 @@
     	}
     }
 
+    function createStartEndMarkers(list) {
+    	var marker1 = new google.maps.Marker({
+    	    position: list[0][0],
+    	    map: map,
+    	    title:"Start"
+    	});
+    	var marker2 = new google.maps.Marker({
+    	    position: list[list.length-1][0],
+    	    map: map,
+    	    title:"End"
+    	});
+    	
+    }
     function makeRegions() {
     	var coords1 = [new google.maps.LatLng(41.88, -86.62),new google.maps.LatLng(42.8818, -86.62),new google.maps.LatLng(42.8818, -88.62),new google.maps.LatLng(41.88, -88.62)];
     	var coords2 = [new google.maps.LatLng(41.88, -86.62),new google.maps.LatLng(40.8818, -86.62),new google.maps.LatLng(40.8818, -88.62),new google.maps.LatLng(41.88, -88.62)];
