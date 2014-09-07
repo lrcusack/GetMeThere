@@ -1,2 +1,118 @@
+
+	
 <!DOCTYPE html>
 <html>
+  <head>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Directions service</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var map;
+
+function initialize() {
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+  var mapOptions = {
+    zoom:7,
+    center: chicago
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  directionsDisplay.setMap(map);
+}
+
+function calcRoute() {
+  var start = document.getElementById('start').value;
+  var end = document.getElementById('end').value;
+  var request = {
+      origin:start,
+      destination:end,
+      travelMode: google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+	<div class = "header">
+		<img class = "logo" src = "GetMeThere.png">
+    </div>
+    <div id="panel">
+    <b>Start: </b>
+    <select id="start" onchange="calcRoute();">
+      <option value="Rogers Park - West Ridge">Rogers Park - West Ridge</option>
+      <option value="Far North West, Chicago">Far North West, Chicago</option>
+      <option value="North Park-Albany-Lincoln Square">North Park-Albany-Lincoln Square</option>
+      <option value="Edge Water- Uptown">Edge Water- Uptown</option>
+      <option value="Dunning-Portage-Belmont Cragn">Dunning-Portage-Belmont Cragn</option>
+      <option value="Irving Park-Avondale-North Ctr">Irving Park-Avondale-North Ctr</option>
+      <option value="Hermosa-Logan Square">Hermosa-Logan Square</option>
+      <option value="Lincoln Park-lake View">Lincoln Park-lake View</option>
+      <option value="Austin, Chicago">Austin, Chicago</option>
+      <option value="Humboldt - Garfield Park E/W">"Humboldt - Garfield Park E/W"</option>
+      <option value="West Town-Near West">West Town-Near West</option>
+      <option value="Near North, Chicago">Near North, Chicago</option>
+      <option value="Chicago Loop">Chicago Loop</option>
+      <option value="Lawndale N/S">Lawndale N/S</option>
+      <option value="Bridgeport-McKinley-Lower West">Bridgeport-McKinley-Lower West</option>
+      <option value="Near South-Douglas">Near South-Douglas</option>
+      <option value="Midway-Garfield Rdge-Clearing">Midway-Garfield Rdge-Clearing</option>
+      <option value="South West Side, Chicago">South West Side, Chicago</option>
+      <option value="New City-Englewood-West Englewood">New City-Englewood-West Englewood</option>
+      <option value="Fuller- Grand Blvd-Washington Park">Fuller- Grand Blvd-Washington Park</option>
+      <option value="Hyde Park- Kenwood-Woodlawn">Hyde Park- Kenwood-Woodlawn</option>
+      <option value="Ashburn, Chicago">Ashburn, Chicago</option>
+      <option value="Auburn Gresham - Chatham">Auburn Gresham - Chatham</option>
+      <option value="South Shore-S Chicago- Avlon">South Shore-S Chicago- Avlon</option>
+      <option value="Beverly-Mountain Greenwood- Morgan Park">Beverly-Mountain Greenwood- Morgan Park</option>
+      <option value="Washington Hts-Roseland-Pullman">Washington Hts-Roseland-Pullman</option>
+      <option value="South Deering- East Side">South Deering- East Side</option>
+      <option value="Riverdale-Hegewisch">Riverdale-Hegewisch</option>
+      <option value="Downtown Lakefront">Downtown Lakefront</option>
+    </select>
+    <b>End: </b>
+    <select id="end" onchange="calcRoute();">
+      <option value="Rogers Park - West Ridge">Rogers Park - West Ridge</option>
+      <option value="Far North West, Chicago">Far North West, Chicago</option>
+      <option value="North Park-Albany-Lincoln Square">North Park-Albany-Lincoln Square</option>
+      <option value="Edge Water- Uptown">Edge Water- Uptown</option>
+      <option value="Dunning-Portage-Belmont Cragn">Dunning-Portage-Belmont Cragn</option>
+      <option value="Irving Park-Avondale-North Ctr">Irving Park-Avondale-North Ctr</option>
+      <option value="Hermosa-Logan Square">Hermosa-Logan Square</option>
+      <option value="Lincoln Park-lake View">Lincoln Park-lake View</option>
+      <option value="Austin, Chicago">Austin, Chicago</option>
+      <option value="Humboldt - Garfield Park E/W">"Humboldt - Garfield Park E/W"</option>
+      <option value="West Town-Near West">West Town-Near West</option>
+      <option value="Near North, Chicago">Near North, Chicago</option>
+      <option value="Chicago Loop">Chicago Loop</option>
+      <option value="Lawndale N/S">Lawndale N/S</option>
+      <option value="Bridgeport-McKinley-Lower West">Bridgeport-McKinley-Lower West</option>
+      <option value="Near South-Douglas">Near South-Douglas</option>
+      <option value="Midway-Garfield Rdge-Clearing">Midway-Garfield Rdge-Clearing</option>
+      <option value="South West Side, Chicago">South West Side, Chicago</option>
+      <option value="New City-Englewood-West Englewood">New City-Englewood-West Englewood</option>
+      <option value="Fuller- Grand Blvd-Washington Park">Fuller- Grand Blvd-Washington Park</option>
+      <option value="Hyde Park- Kenwood-Woodlawn">Hyde Park- Kenwood-Woodlawn</option>
+      <option value="Ashburn, Chicago">Ashburn, Chicago</option>
+      <option value="Auburn Gresham - Chatham">Auburn Gresham - Chatham</option>
+      <option value="South Shore-S Chicago- Avlon">South Shore-S Chicago- Avlon</option>
+      <option value="Beverly-Mountain Greenwood- Morgan Park">Beverly-Mountain Greenwood- Morgan Park</option>
+      <option value="Washington Hts-Roseland-Pullman">Washington Hts-Roseland-Pullman</option>
+      <option value="South Deering- East Side">South Deering- East Side</option>
+      <option value="Riverdale-Hegewisch">Riverdale-Hegewisch</option>
+      <option value="Downtown Lakefront">Downtown Lakefront</option>
+    </select>
+    </div>
+    <div id="map-canvas"></div>
+  </body>
+</html>

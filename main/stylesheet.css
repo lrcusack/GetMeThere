@@ -1,0 +1,51 @@
+.header{
+	height: 37px;
+	width: 100%;
+	margin-top: 0px;
+	background-color: #5f872a;
+	color: white;
+	box-shadow: rgba(17,17,17,0.22) 0px 2px 3px;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	padding-top:0;
+	font-weight:300;
+	font-family: "robotolight", "roboto", "Segoe UI Light";
+	margin-top: -1px;
+}
+
+.logo{
+	max-width: 120px;
+	max-height: 37px;
+	position:relative;
+	margin-top: 5px;
+	margin-left: 20px;
+}
+html, body{
+    height: 100%;
+    margin: 0px;
+    padding: 0px
+}
+
+body{
+	background-image: url("overlay.png");
+}
+
+#map-canvas{
+	height: 89%;
+	width: 97%;
+	position:relative;
+	margin-top: 90px;
+	margin-right:auto;
+	margin-left:auto;
+}
+#panel {
+	width: 100%;
+	position: absolute;
+	top: 40px;
+	z-index: 5;
+	background-color: #fff;
+	padding: 5px;
+	border: 1px solid #999;
+	padding-left: 7.5%;
+}
