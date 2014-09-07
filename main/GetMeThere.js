@@ -2,12 +2,12 @@
 var tfactor = [];
 function test(){
 	build_tdb();
-	//document.getElementById("debug").innerHTML += "tdb runs";
+	//document.getElementById("finalTravel").innerHTML += "tdb runs";
 	//addTime("05:32",1000);
 	//a = depTime([{latlon : [-87.69,42], duration : 180},{latlon : [-87.69,41.7], duration : 180}],"05:32","Saturday");
 	//a = depTime([{latlon : [-87.69,41.7], duration : 180},{latlon : [-87.69,41.7], duration : 180}],"05:32","Saturday");
-	//document.getElementById("debug").innerHTML += a;
-	//document.getElementById("debug").innerHTML += "code runs";
+	//document.getElementById("finalTravel").innerHTML += a;
+	//document.getElementById("finalTravel").innerHTML += "code runs";
 }
 
 function arrTime(pointdata, departTime,day){
@@ -19,8 +19,9 @@ function arrTime(pointdata, departTime,day){
 		
 		tf = getTfactor(pointdata[i].latlon,ctime,day);
 		
-		document.getElementById("finalTravel").innerHTML += "*** "+tf+" ***";
+		//document.getElementById("finalTravel").innerHTML += "*** "+tf+" ***";
 		dt = pointdata[i].duration * tf;
+		//document.getElementById("finalTravel").innerHTML += "*** "+dt+" ***";
 		ctime = addTime(ctime,dt);
 	}
 	return ctime;
@@ -28,16 +29,16 @@ function arrTime(pointdata, departTime,day){
 
 function depTime(pointdata, arrTime, day){
 	var ctime = arrTime;
-	//document.getElementById("debug").innerHTML += ctime;
+	//document.getElementById("finalTravel").innerHTML += ctime;
 	var tf;
 	var dt;
 	for(var i = pointdata.length-1; i>=0; i--){
-		//document.getElementById("debug").innerHTML += "round "+i+" ";
+		//document.getElementById("finalTravel").innerHTML += "round "+i+" ";
 		tf = getTfactor(pointdata[i].latlon,roundTime(addTime(ctime,-600)),day);
-		//document.getElementById("debug").innerHTML += "*** "+tf+" ***";
+		//document.getElementById("finalTravel").innerHTML += "*** "+tf+" ***";
 		dt = pointdata[i].duration * tf;
 		ctime = addTime(ctime,-dt);
-		//document.getElementById("debug").innerHTML += ctime+"----";
+		//document.getElementById("finalTravel").innerHTML += ctime+"----";
 	}
 	return ctime;
 }
@@ -45,13 +46,13 @@ function depTime(pointdata, arrTime, day){
 function getTfactor(ll, ct, day){
 	
 	r = findRegion(ll)-1;
-	document.getElementById("finalTravel").innerHTML = "hit";
-	//document.getElementById("debug").innerHTML += r;
+	//document.getElementById("finalTravel").innerHTML = "hit";
+	//document.getElementById("finalTravel").innerHTML += r;
 	if(r==-1){return 1;}
 	d = days[String(day)] - 1;
-	//document.getElementById("debug").innerHTML += d;
+	//document.getElementById("finalTravel").innerHTML += d;
 	t = times[roundTime(ct)]-1;
-	//document.getElementById("debug").innerHTML += "["+r+", "+d+", "+t +"]";
+	//document.getElementById("finalTravel").innerHTML += "["+r+", "+d+", "+t +"]";
 	//return 1;
 	return tfactor[r][d][t];
 }
@@ -60,7 +61,7 @@ function findRegion(ll){
 	var r;
 	
 	for(var i = 0; i<nregions; i++){
-		document.getElementById("finalTravel").innerHTML = regions;
+		//document.getElementById("finalTravel").innerHTML = regions;
 		//document.getElementById("finalTravel").innerHTML += " "+ll[1];
 
 		//document.getElementById("finalTravel").innerHTML = "hit";
@@ -94,7 +95,7 @@ function timeString(hrs, mns){
 	if(m.length===1) h = "0"+m;
 	
 	s = String(h+":"+m);
-	//document.getElementById("debug").innerHTML += s;
+	//document.getElementById("finalTravel").innerHTML += s;
 	return s;
 	
 }
@@ -108,13 +109,13 @@ function addTime(ctime, seconds){ //ctime in "HH:MM", seconds in numerical
 	minutes+=Math.round(seconds/60);
 	
 	//
-	//document.getElementById("debug").innerHTML += hours;
-	//document.getElementById("debug").innerHTML += minutes;
+	//document.getElementById("finalTravel").innerHTML += hours;
+	//document.getElementById("finalTravel").innerHTML += minutes;
 	return timeString(hours,minutes);
 }
 
 function roundTime(ct){
-//document.getElementById("debug").innerHTML += "hit";
+//document.getElementById("finalTravel").innerHTML += "hit";
 	var time = ct.split(":");
 	hours = parseInt(time[0]);
 	minutes = Math.round(parseInt(time[1])/10)*10;
