@@ -18,6 +18,7 @@ body{
 	font-family: "robotolight", "roboto", "Segoe UI Light";
 	margin-top: -1px;
 }
+
 b{
 	color:#2ea02e;
 }
@@ -33,19 +34,20 @@ html, body{
     margin: 0px;
     padding: 0px
 }
-form{
-	display:inline-block;
-	color:green;
-	font-family: "Calibri";
-	font-weight:300px;
-	
-}
+
 body{
 	background-image: url("overlay.png");
 }
 
 #finaltravel{
 	margin-left: 30px;
+}
+
+form{
+	display:inline-block;
+	color:green;
+	font-family: "Calibri";
+	font-weight:300px;
 	
 }
 
