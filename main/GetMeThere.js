@@ -2,21 +2,21 @@
 var tfactor = [];
 function test(){
 	build_tdb();
-	document.getElementById("debug").innerHTML += "tdb runs";
+	//document.getElementById("debug").innerHTML += "tdb runs";
 	//addTime("05:32",1000);
-	//a = arrTime([{latlon : [-87.69,42], duration : 180},{latlon : [-87.69,41.7], duration : 180}],"05:32","Saturday");
-	//a = arrTime([{latlon : [-87.69,41.7], duration : 180},{latlon : [-87.69,41.7], duration : 180}],"05:32","Saturday");
+	//a = depTime([{latlon : [-87.69,42], duration : 180},{latlon : [-87.69,41.7], duration : 180}],"05:32","Saturday");
+	a = depTime([{latlon : [-87.69,41.7], duration : 180},{latlon : [-87.69,41.7], duration : 180}],"05:32","Saturday");
 	document.getElementById("debug").innerHTML += a;
-	document.getElementById("debug").innerHTML += "code runs";
+	//document.getElementById("debug").innerHTML += "code runs";
 }
 
 function arrTime(pointdata, departTime,day){
-	var ctime = roundTime(departTime);
+	var ctime = departTime;
 	var tf;
 	var dt;
 	for(var i = 0; i<pointdata.length; i++){
 		tf = getTfactor(pointdata[i].latlon,ctime,day);
-		document.getElementById("debug").innerHTML += "*** "+tf+" ***";
+		//document.getElementById("debug").innerHTML += "*** "+tf+" ***";
 		dt = pointdata[i].duration * tf;
 		ctime = addTime(ctime,dt);
 	}
@@ -24,24 +24,30 @@ function arrTime(pointdata, departTime,day){
 }
 
 function depTime(pointdata, arrTime, day){
-	var ctime = roundTime(addTime(arrTime,-600));
+	var ctime = arrTime;
+	//document.getElementById("debug").innerHTML += ctime;
 	var tf;
 	var dt;
-	for(var i = 0; i<pointdata.length; i++){
-		tf = getTfactor(pointdata[i].latlon,ctime,day);
-		document.getElementById("debug").innerHTML += "*** "+tf+" ***";
+	for(var i = pointdata.length-1; i>=0; i--){
+		//document.getElementById("debug").innerHTML += "round "+i+" ";
+		tf = getTfactor(pointdata[i].latlon,roundTime(addTime(ctime,-600)),day);
+		//document.getElementById("debug").innerHTML += "*** "+tf+" ***";
 		dt = pointdata[i].duration * tf;
 		ctime = addTime(ctime,-dt);
+		//document.getElementById("debug").innerHTML += ctime+"----";
 	}
 	return ctime;
 }
 
 function getTfactor(ll, ct, day){
+	
 	r = findRegion(ll)-1;
+	//document.getElementById("debug").innerHTML += r;
 	if(r==-1){return 1;}
 	d = days[String(day)] - 1;
+	//document.getElementById("debug").innerHTML += d;
 	t = times[roundTime(ct)]-1;
-	document.getElementById("debug").innerHTML += "["+r+", "+d+", "+t +"]";
+	//document.getElementById("debug").innerHTML += "["+r+", "+d+", "+t +"]";
 	//return 1;
 	return tfactor[r][d][t];
 }
@@ -96,6 +102,7 @@ function addTime(ctime, seconds){ //ctime in "HH:MM", seconds in numerical
 }
 
 function roundTime(ct){
+//document.getElementById("debug").innerHTML += "hit";
 	var time = ct.split(":");
 	hours = parseInt(time[0]);
 	minutes = Math.round(parseInt(time[1])/10)*10;
@@ -103,19 +110,6 @@ function roundTime(ct){
 	return timeString(hours,minutes);
 }
 
-//Austin's algorithm
-//function calculateTime(TrafficFactorInfo,nodes, totalDistance, day, startTime){ 
-//	integrand = [];
-//	totalTimeElapsed = 0
-//
-//
-//	for(i = 0; i < nodes.length;i++){
-//		totalSizeRatio = nodes[1]/totalDistance
-//		integrand.append((trafficFactorInfo[nodes[2]][day][(startTime+totalTimeElapsed) - (startTime+totalTimeElapsed)%10]*nodes[2])*totalSizeRatio);
-//		totalTimeElapsed += ((trafficFactorInfo[nodes[2]][day][(startTime+totalTimeElapsed) - (startTime+totalTimeElapsed)%10]*nodes[2])*totalSizeRatio)
-//	}
-//	return sum(integrand)
-//}
 
 //######################Traffic Index Info##################################(because Liam and JSON have beef)
 
