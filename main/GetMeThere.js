@@ -15,6 +15,9 @@ function arrTime(pointdata, departTime,day){
 	var ctime = departTime;
 	var tf;
 	var dt;
+	var pathCoords;    
+	color =[];
+
 	for(var i = 0; i<pointdata.length; i++){
 		
 		tf = getTfactor(pointdata[i].latlon,ctime,day);
@@ -23,6 +26,14 @@ function arrTime(pointdata, departTime,day){
 		dt = pointdata[i].duration * tf;
 		//document.getElementById("finalTravel").innerHTML += "*** "+dt+" ***";
 		ctime = addTime(ctime,dt);
+		//pathCoords = [new google.maps.LatLng(pointdata[i].latlon[0],pointdata[i].latlon[1]),new google.maps.LatLng(pointdata[i+1].latlon[0],pointdata[i+1].latlon[1])];
+		if(tf===colors.g){color[i] = '#10F116';}
+		else if (tf<=colors.gy){color[i] = '#DFFE04';}
+		else if (tf<=colors.yo){color[i] = '#FEE40B';}
+		else if (tf<=colors.or){color[i] = '#FF6600';}
+		else {color = '#FF0000';}
+
+
 	}
 	return ctime;
 }
@@ -126,7 +137,7 @@ function roundTime(ct){
 
 //######################Traffic Index Info##################################(because Liam and JSON have beef)
 
-var colors = { "green":1.000,   "g-y":2.100,   "y-o":2.340,   "o-r":2.645,   "r":5.768 };
+var colors = { "g":1.000,   "gy":2.100,   "yo":2.340,   "or":2.645,   "r":5.768 };
 
 var ndays  = 7;
 var days = {
