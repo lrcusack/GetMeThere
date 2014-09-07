@@ -54,10 +54,10 @@ body{
    -webkit-box-shadow: inset 0 0 10px #000000;
    box-shadow:         inset 10 10 10px #000000;
 	height: 89%;
-	width: 97%;
+	width: 70%;
 	position:relative;
 	margin-top: 90px;
-	margin-right:auto;
+	margin-right:20px;
 	margin-left:auto;
 }
 #panel {
@@ -70,3 +70,16 @@ body{
 	border: 1px solid #999;
 	padding-left: 7.5%;
 }
+
+#side {
+    width:25%; 
+	top:85px; 
+	background-color:white; 
+	position:fixed; 
+	float:left;
+	bottom: 0px;
+	border: 5px solid black;
+	padding: 7px;
+	overflow: scroll;
+}
+
